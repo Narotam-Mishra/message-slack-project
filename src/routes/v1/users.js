@@ -3,7 +3,7 @@ import express from 'express'
 
 const router = express.Router();
 
-router.get('/users', (req, res) => {
+router.get('/', (req, res) => {
     return res.status(200).json({ message: 'GET /user' })
 })
 
