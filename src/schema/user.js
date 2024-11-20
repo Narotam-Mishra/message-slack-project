@@ -16,13 +16,24 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, 'Password is required']
+      required: [true, 'Password is required'],
+      minlength: 6,
+      maxlength: 16,
+      validate: {
+        validator: function (v) {
+          // Regex: 6-16 characters, one uppercase, one lowercase, one number, and one special character
+          return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,16}$/.test(v);
+        },
+        message:
+          'Password must be between 6 and 16 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.',
+      },
     },
     username: {
       type: String,
       required: [true, 'Username is required'],
       unique: [true, 'Username already exists'],
-      minLength: [3, 'Username must be at least 3 characters'],
+      minlength: [3, 'Username must be at least 3 characters'],
+      maxlength: 33,
       match: [
         /^[a-zA-Z0-9]+$/,
         'Username must contain only letters and numbers'
