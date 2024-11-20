@@ -1,5 +1,5 @@
-import userRepository from "../repositories/userRepository";
-import ValidationError from "../utils/errors/validationError";
+import userRepository from "../repositories/userRepository.js";
+import ValidationError from "../utils/errors/validationError.js";
 
 
 export const signUpService = async (data) => {
