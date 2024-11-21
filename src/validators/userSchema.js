@@ -11,3 +11,14 @@ export const userSignUpSchema = z.object({
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,16}$/
     ),
 });
+
+export const userSignInSchema = z.object({
+  email: z.string().email(),
+  password: z
+    .string()
+    .min(6)
+    .max(16)
+    .regex(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,16}$/
+    ), 
+})
