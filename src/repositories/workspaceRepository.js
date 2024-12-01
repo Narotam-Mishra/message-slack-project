@@ -6,7 +6,7 @@ const workspaceRepository = {
     ...crudRepository(Workspace),
 
     getWorkspaceByName: async function() {
-
+        console.log("Repo code");
     },
 
     getWorkspaceByJoinCode: async function() {
